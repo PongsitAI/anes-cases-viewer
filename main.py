@@ -1,5 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from typing import List
 import models
@@ -15,6 +17,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="."), name="static")
 
 # Pydantic models for request/response
 class AnesCaseBase(BaseModel):
@@ -41,8 +46,8 @@ def get_db():
         db.close()
 
 @app.get("/")
-def read_root():
-    return {"message": "Welcome to Anesthesia Cases API"}
+async def read_root():
+    return FileResponse("index.html")
 
 @app.get("/cases", response_model=List[AnesCase])
 def read_cases(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -62,4 +67,8 @@ def create_case(case: AnesCaseCreate, db: Session = Depends(get_db)):
     db.add(db_case)
     db.commit()
     db.refresh(db_case)
-    return db_case 
+    return db_case
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8081) 

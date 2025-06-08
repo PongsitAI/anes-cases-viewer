@@ -34,7 +34,7 @@ api-test/
    ```bash
    python -m http.server 8080
    ```
-   - จากนั้นเปิดเบราว์เซอร์ไปที่ [http://localhost:8080/index.html](http://localhost:8080/index.html)
+   - จากนั้นเปิดเบราว์เซอร์ไปที่ [http://localhost:8081/index.html](http://localhost:8081/index.html)
 
 ## รายละเอียดแต่ละไฟล์
 - **index.html**: หน้าเว็บสำหรับแสดงข้อมูลเคสในรูปแบบตาราง พร้อม filter `asa_status`
