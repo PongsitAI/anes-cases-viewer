@@ -25,7 +25,7 @@ api-test/
 
 2. **รัน FastAPI backend**
    ```bash
-   uvicorn main:app --reload
+   uvicorn main:app --reload --port 8081
    ```
    - API จะรันที่ http://localhost:8000
    - สามารถดูเอกสาร API ได้ที่ http://localhost:8000/docs
@@ -34,7 +34,7 @@ api-test/
    ```bash
    python -m http.server 8080
    ```
-   - จากนั้นเปิดเบราว์เซอร์ไปที่ [http://localhost:8081/index.html](http://localhost:8081/index.html)
+   - จากนั้นเปิดเบราว์เซอร์ไปที่ http://localhost:8081
 
 ## รายละเอียดแต่ละไฟล์
 - **index.html**: หน้าเว็บสำหรับแสดงข้อมูลเคสในรูปแบบตาราง พร้อม filter `asa_status`

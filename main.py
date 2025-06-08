@@ -47,9 +47,9 @@ def get_db():
 
 @app.get("/")
 async def read_root():
-    return FileResponse("index.html")
+    return FileResponse("index.html", media_type="text/html")
 
-@app.get("/cases", response_model=List[AnesCase])
+@app.get("/api/cases", response_model=List[AnesCase])
 def read_cases(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     cases = db.query(models.AnesCase).offset(skip).limit(limit).all()
     return cases
