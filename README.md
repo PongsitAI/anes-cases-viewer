@@ -27,8 +27,8 @@ api-test/
    ```bash
    uvicorn main:app --reload --port 8081
    ```
-   - API จะรันที่ http://localhost:8000
-   - สามารถดูเอกสาร API ได้ที่ http://localhost:8000/docs
+   - API จะรันที่ http://localhost:8081
+   - สามารถดูเอกสาร API ได้ที่ http://localhost:8081/docs
 
 3. **รันเว็บเซิร์ฟเวอร์สำหรับ frontend** (เพื่อให้ fetch API ได้สมบูรณ์)
    ```bash
